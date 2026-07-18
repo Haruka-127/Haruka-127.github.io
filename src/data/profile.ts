@@ -23,7 +23,7 @@ export const profile: Profile = {
   handle: 'Haruka',
   brand: 'Haruka',
   title: 'Haruka | Profile',
-  description: 'インフラ、セキュリティ、開発に関心を持つ高校生のプロフィールサイト。',
+  description: 'インフラ、セキュリティ、開発に関心を持つ高校生のプロフィールサイト',
   heroDescription: 'インフラとセキュリティに関心を持つ、日本の高校生です',
   about: '私は高校生で、自宅サーバーの運用や開発を通して、インフラ・セキュリティを中心に学んでいます。\n\n自宅サーバーは、Proxmoxを用いて構築されており、さまざまなサービスが展開・運用されています。\n\nAIエージェントをセキュアに動かすための実行基盤の開発を通してセキュリティについて学んでいます。',
   labels: ['High School Student', 'Infrastructure', 'Security', 'Development'],
