@@ -1,0 +1,6 @@
+---
+import SectionHeading from './SectionHeading.astro'; import Tag from './Tag.astro'; import { profile } from '../data/profile';
+---
+<section id="contact" class="section-shell reveal">
+  <div class="contact-wrap"><SectionHeading eyebrow="05 / CONTACT" title="Contact" /><ul class="grid border-t border-slate-200 sm:grid-cols-3">{profile.links.map((link, index) => <li class="contact-link"><a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}><span class="font-mono text-[.6rem] text-slate-400">0{index + 1}</span><span class="text-sm text-slate-800">{link.label}</span>{link.note && <Tag text={link.note} tone="sample" />}</a></li>)}</ul></div>
+</section>

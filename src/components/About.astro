@@ -1,0 +1,10 @@
+---
+import SectionHeading from './SectionHeading.astro'; import Tag from './Tag.astro'; import { profile } from '../data/profile';
+---
+<section id="about" class="section-shell reveal">
+  <SectionHeading eyebrow="01 / ABOUT" title="About me" />
+  <div class="editorial-grid">
+    <div><Tag text="PLACEHOLDER CONTENT" tone="sample" /><p class="mt-7 whitespace-pre-line text-lg leading-9 text-slate-700 sm:text-xl sm:leading-10">{profile.about}</p></div>
+    <div class="border-t border-slate-200 pt-5 lg:border-t-0 lg:border-l lg:pl-10"><h3 class="font-mono text-[.65rem] tracking-[0.16em] text-slate-500">CURRENT INTERESTS</h3><ul class="mt-6 divide-y divide-slate-200">{profile.keywords.map((keyword, index) => <li class="flex items-center justify-between py-3 text-sm text-slate-700"><span>{keyword}</span><span class="font-mono text-[.6rem] text-slate-400">{String(index + 1).padStart(2, '0')}</span></li>)}</ul></div>
+  </div>
+</section>

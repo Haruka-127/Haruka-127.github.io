@@ -1,0 +1,44 @@
+---
+import { profile } from '../data/profile';
+const isHome = Astro.url.pathname === '/';
+const homeLink = (hash: string) => isHome ? hash : `/${hash}`;
+const nav = [
+  ['About', homeLink('#about')], ['Interests', homeLink('#interests')], ['Achievements', homeLink('#achievements')],
+  ['Projects', homeLink('#projects')], ['Contact', homeLink('#contact')],
+] as const;
+---
+<header class="sticky inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-lg">
+  <div class="container-shell flex h-16 items-center justify-between gap-4">
+    <a href={isHome ? '#top' : '/'} class="font-mono text-[.68rem] font-semibold tracking-[0.12em] text-slate-900 hover:text-black">{profile.brand}</a>
+    <nav aria-label="メインナビゲーション" class="hidden items-center gap-0.5 md:flex">
+      {nav.map(([label, href]) => <a class="nav-link" href={href} data-section={isHome && href.startsWith('#') ? href.slice(1) : undefined} aria-current={label === 'Projects' && Astro.url.pathname.startsWith('/projects') ? 'page' : undefined}>{label}</a>)}
+    </nav>
+    <details class="mobile-nav relative md:hidden">
+      <summary aria-label="ナビゲーションメニューを開く" aria-expanded="false" class="focus-ring flex min-h-11 cursor-pointer list-none items-center border border-slate-300 px-3 font-mono text-xs text-slate-800">MENU</summary>
+      <nav aria-label="モバイルナビゲーション" class="absolute right-0 top-12 grid min-w-52 border border-slate-200 bg-white p-2 shadow-lg">
+        {nav.map(([label, href]) => <a class="px-4 py-3 text-sm text-slate-700 underline underline-offset-4 hover:no-underline" href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>)}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-section]');
+  const targets = [...links].map((link) => document.getElementById(link.dataset.section ?? '')).filter((node): node is HTMLElement => node !== null);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        links.forEach((link) => link.removeAttribute('aria-current'));
+        document.querySelector(`[data-section="${entry.target.id}"]`)?.setAttribute('aria-current', 'location');
+      }
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    targets.forEach((target) => observer.observe(target));
+  }
+  const mobileMenu = document.querySelector<HTMLDetailsElement>('.mobile-nav');
+  const mobileToggle = mobileMenu?.querySelector<HTMLElement>('summary');
+  mobileMenu?.addEventListener('toggle', () => {
+    mobileToggle?.setAttribute('aria-expanded', String(mobileMenu.open));
+    mobileToggle?.setAttribute('aria-label', mobileMenu.open ? 'ナビゲーションメニューを閉じる' : 'ナビゲーションメニューを開く');
+  });
+  mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => mobileMenu.removeAttribute('open')));
+</script>

@@ -1,0 +1,6 @@
+---
+interface Props { text: string; tone?: 'default' | 'accent' | 'sample' }
+const { text, tone = 'default' } = Astro.props;
+const styles = { default: 'text-slate-600', accent: 'text-black', sample: 'text-slate-500 underline decoration-dotted underline-offset-4' };
+---
+<span class:list={['inline-flex max-w-full whitespace-nowrap font-mono text-[0.65rem] tracking-[.08em]', styles[tone]]}>[{text}]</span>

@@ -1,0 +1,17 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import Tag from './Tag.astro';
+import { interests } from '../data/interests';
+---
+<section id="interests" class="section-shell reveal">
+  <SectionHeading eyebrow="02 / INTERESTS" title="Interests" />
+  <div class="border-t border-slate-200">
+    {interests.map((interest, index) => (
+      <article class="grid gap-3 border-b border-slate-200 py-7 sm:grid-cols-[2rem_1fr_1fr]">
+        <span class="font-mono text-[.6rem] text-slate-400">0{index + 1}</span>
+        <div><h3 class="text-xl font-medium text-black">{interest.title}</h3><p class="mt-2 text-sm text-slate-600">{interest.description}</p></div>
+        <div class="flex flex-wrap content-start gap-x-3 gap-y-2">{interest.keywords.map((keyword) => <Tag text={keyword} />)}</div>
+      </article>
+    ))}
+  </div>
+</section>

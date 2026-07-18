@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fff"/>
+  <text x="84" y="110" fill="#000" font-family="monospace" font-size="22" letter-spacing="4">HARUKA / PROFILE</text>
+  <line x1="84" y1="158" x2="1116" y2="158" stroke="#d1d5db"/>
+  <text x="84" y="330" fill="#000" font-family="system-ui,sans-serif" font-size="88" font-weight="700">Haruka</text>
+  <text x="84" y="430" fill="#64748b" font-family="system-ui,sans-serif" font-size="25">High School Student · Infrastructure · Security</text>
+</svg>
