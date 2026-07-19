@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Tag from '../../components/Tag.astro';
 import ProjectContent from '../../components/ProjectContent.astro';
+import BudouxText from '../../components/BudouxText.astro';
 import { profile } from '../../data/profile';
 import { projects, type Project } from '../../data/projects';
 
@@ -42,12 +43,12 @@ const repository = (() => {
       ))}
     </h1>
     <div class="mt-8"><Tag text={project.status} /></div>
-    <p class="mt-10 max-w-2xl whitespace-pre-line text-base leading-8 text-slate-700">{project.summary}</p>
+    <p class="mt-10 max-w-2xl whitespace-pre-line text-base leading-8 text-slate-700"><BudouxText text={project.summary} /></p>
     {project.content ? (
       <ProjectContent sections={project.content} />
     ) : (
       <div class="mt-12 border-t border-slate-200 pt-10">
-        <p class="max-w-2xl whitespace-pre-line text-base leading-8 text-slate-700">{project.body}</p>
+        <p class="max-w-2xl whitespace-pre-line text-base leading-8 text-slate-700"><BudouxText text={project.body} /></p>
       </div>
     )}
     {repository && (

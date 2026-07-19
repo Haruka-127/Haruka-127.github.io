@@ -1,0 +1,13 @@
+---
+import { loadDefaultJapaneseParser } from 'budoux';
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+const parser = loadDefaultJapaneseParser();
+const phrases = parser.parse(text);
+---
+
+<span class="budoux-text">{phrases.map((phrase, index) => <>{index > 0 && <wbr />}{phrase}</>)}</span>

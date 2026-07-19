@@ -6,6 +6,7 @@ Harukaのプロフィール、興味分野、Achievements、Projects、連絡先
 
 - Astro / TypeScript（strictest）
 - Tailwind CSS（`@tailwindcss/vite`）
+- BudouX（日本語の自然な改行位置をビルド時に設定）
 - GitHub Actions / GitHub Pages
 - UIフレームワーク、データベース、CMS、サーバーサイド処理は不使用
 
@@ -94,6 +95,8 @@ export const exampleContent = [
 - [public/og-image.svg](public/og-image.svg): リンク共有時の画像
 - [public/favicon.png](public/favicon.png): favicon（128×128px）
 - [public/robots.txt](public/robots.txt): クローラー設定
+
+サイト内の日本語本文と見出しには[src/components/BudouxText.astro](src/components/BudouxText.astro)を使用しています。BudouXはビルド時に文節を解析して`<wbr>`を生成するため、ブラウザ側へ追加のJavaScriptは配信されません。折り返さないタグ、メールアドレス、明示的に区切りを指定した個別ページのタイトルには適用していません。
 
 ## GitHub Pages
 

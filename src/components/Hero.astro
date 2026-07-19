@@ -1,12 +1,13 @@
 ---
 import Tag from './Tag.astro';
+import BudouxText from './BudouxText.astro';
 import { profile } from '../data/profile';
 ---
 <section id="top" class="relative overflow-hidden py-20 sm:py-28">
   <div class="container-shell">
     <p class="font-mono text-[.65rem] tracking-[.14em] text-slate-500">PROFILE</p>
     <h1 class="mt-8 flex flex-wrap items-baseline gap-x-[0.35em] text-[clamp(3rem,9vw,6rem)] font-bold leading-none tracking-[-0.065em] text-black"><span>I'm</span><span>{profile.handle}</span></h1>
-    <p class="mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">{profile.heroDescription}</p>
+    <p class="mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg"><BudouxText text={profile.heroDescription} /></p>
     <div class="mt-7 flex flex-wrap gap-2">{profile.labels.map((label) => <Tag text={label} />)}</div>
     <dl class="mt-14 grid border-y border-slate-200 sm:grid-cols-2">{profile.status.map((item) => <div class="status-cell py-4"><dt class="font-mono text-[0.6rem] tracking-[.14em] text-slate-600">{item.label}</dt><dd class="mt-1 text-sm text-slate-800">{item.value}</dd></div>)}</dl>
   </div>

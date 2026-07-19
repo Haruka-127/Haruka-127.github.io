@@ -1,5 +1,6 @@
 ---
 import SectionHeading from './SectionHeading.astro';
+import BudouxText from './BudouxText.astro';
 import { achievements } from '../data/interests';
 ---
 <section id="achievements" class="section-shell reveal">
@@ -8,8 +9,8 @@ import { achievements } from '../data/interests';
     {achievements.map((achievement, index) => (
       <li class="grid gap-4 border-b border-slate-200 py-7 sm:grid-cols-[2rem_1fr_auto] sm:items-baseline">
         <span class="font-mono text-[.6rem] text-slate-400">0{index + 1}</span>
-        <div><p class="font-mono text-[.65rem] text-slate-500">{achievement.label}</p><h3 class="mt-2 text-xl font-medium text-black">{achievement.title}</h3></div>
-        <p class="text-sm text-slate-700">{achievement.description}</p>
+        <div><p class="font-mono text-[.65rem] text-slate-500">{achievement.label}</p><h3 class="mt-2 text-xl font-medium text-black"><BudouxText text={achievement.title} /></h3></div>
+        <p class="text-sm text-slate-700"><BudouxText text={achievement.description} /></p>
       </li>
     ))}
   </ol>
