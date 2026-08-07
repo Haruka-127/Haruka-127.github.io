@@ -1,6 +1,7 @@
 ---
 import type { ProjectSection } from '../data/projectDetails';
 import BudouxText from './BudouxText.astro';
+import RepositoryCard from './RepositoryCard.astro';
 
 interface Props {
   sections: readonly ProjectSection[];
@@ -47,6 +48,8 @@ const { sections } = Astro.props;
           ))}
         </div>
       )}
+
+      {section.repositoryUrl && <RepositoryCard repositoryUrl={section.repositoryUrl} class="mt-7" />}
     </section>
   ))}
 </article>

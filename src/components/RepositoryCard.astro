@@ -1,0 +1,43 @@
+---
+interface Props {
+  repositoryUrl: string;
+  class?: string;
+}
+
+const { repositoryUrl, class: className = 'mt-12' } = Astro.props;
+const url = new URL(repositoryUrl);
+const [owner, name] = url.pathname.split('/').filter(Boolean);
+const isGitHubRepository = url.hostname === 'github.com' && owner && name;
+const label = isGitHubRepository ? `${owner}/${name}` : url.hostname;
+const previewImageUrl = isGitHubRepository
+  ? `https://opengraph.githubassets.com/1/${owner}/${name}`
+  : undefined;
+---
+
+<a
+  class:list={[
+    'block max-w-2xl overflow-hidden border border-slate-200 text-black transition-colors hover:border-slate-500',
+    className,
+  ]}
+  href={url.toString()}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`${label}のリポジトリを開く（新しいタブ）`}
+>
+  {previewImageUrl && (
+    <img
+      class="block aspect-[2/1] w-full bg-slate-100 object-cover"
+      src={previewImageUrl}
+      alt={`${label}のGitHubプレビュー`}
+      width="1200"
+      height="600"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+    />
+  )}
+  <span class="flex items-center justify-between gap-4 border-t border-slate-200 px-5 py-4 text-sm">
+    <span class="min-w-0 break-all">{label}</span>
+    <span class="shrink-0" aria-hidden="true">↗</span>
+  </span>
+</a>
