@@ -12,6 +12,50 @@ export interface ProjectSection {
   repositoryUrl?: string;
 }
 
+export const aiAgentRuntimeContent = [
+  {
+    title: '概要',
+    paragraphs: [
+      'sunabaは、OpenCodeをプロジェクト専用のApple Container VMで動かす、Apple silicon Mac向けのAIエージェント実行基盤です。',
+      'AIエージェントとその実行コマンドには、VM内でシェル、ビルド、テスト、依存関係の導入などを行える自由度を持たせながら、ホスト環境、認証情報、ほかのプロジェクト、外部ネットワークとの境界をホスト側で管理します。',
+      'プロンプトインジェクションや悪意のある依存パッケージによってVM内が侵害される可能性を前提に、影響範囲をプロジェクト専用VMへ閉じ込めることを目指して開発しています。',
+    ],
+  },
+  {
+    title: '実行環境と分離',
+    paragraphs: [
+      '1つのプロジェクトにつき1台のAgent VMを作成し、OpenCode serverやシェル、ビルド、テストをVM内で実行します。ホストではOpenCode TUIを起動し、専用の中継経路を通してVM内のserverへ接続します。',
+      'ホストの作業ツリーはVMへ直接書き込み可能な状態でマウントしません。承認したProject Snapshotを基準にVM内で編集し、ホストへの意図しない変更や、ほかのプロジェクトへの影響を防ぎます。',
+      'VMはプロジェクト単位で保持されるため、セッションを終了した後も編集状態を再利用できます。必要な場合は、承認済みのSnapshotからクリーンな環境を再作成できます。',
+    ],
+  },
+  {
+    title: '変更の確認と反映',
+    paragraphs: [
+      'VMを作成する前にSnapshotのメタデータを確認し、内容に対応するdigestを明示的に承認します。VM内の変更はホストへ直接書き込まず、Change Setとして書き出します。',
+      '書き出した変更は、固定された変更前後の内容をホスト側で確認してから適用します。Change Setの生成や検証ではVMが提示する差分を信頼せず、ホスト側でbaselineと成果物を比較します。',
+      '途中で処理に失敗した場合も、停止したVMや書き出し済みの成果物を残し、状態を確認して再試行または破棄できる復旧フローを用意しています。',
+    ],
+  },
+  {
+    title: '認証情報とネットワークの保護',
+    paragraphs: [
+      'OpenAIやGitの実際の認証情報はVMへ渡さず、ホスト側のModel GatewayとGit Gatewayを通して必要な操作だけを仲介します。外部リポジトリへのGit pushやホストへのChange Set適用は、ホスト側での明示的な承認が必要です。',
+      '既定のsecure modeでは、許可したGateway以外を経由する外向き通信を拒否します。直接インターネット接続が必要な作業にはdev modeを用意し、安全性の違いを理解したうえで明示的に選択する設計としています。',
+    ],
+    subsections: [
+      {
+        title: '主な境界機能',
+        items: ['Model Gateway', 'Git Gateway', 'Web Gateway', 'セッション単位の権限と有効期限', '利用量とリソースの制限', 'ホスト側の監査ログ'],
+      },
+    ],
+  },
+  {
+    title: '主な技術',
+    items: ['Go', 'Apple Container', 'OpenCode', 'OverlayFS', 'Linux VM', 'macOS'],
+  },
+] satisfies readonly ProjectSection[];
+
 export const homeServerContent = [
   {
     title: '概要',
@@ -258,6 +302,14 @@ export const studentHealthSupportContent = [
 ] satisfies readonly ProjectSection[];
 
 export const otherProjectsContent = [
+  {
+    title: 'プロフィールサイト',
+    paragraphs: [
+      'プロフィール、興味分野、実績、開発しているプロジェクトを紹介するために、このWebサイトを制作しています。',
+      'Astro、TypeScript、Tailwind CSSを使用して静的サイトとして構築し、GitHub ActionsからGitHub Pagesへデプロイしています。日本語の文章にはBudouXを利用し、クライアント側のJavaScriptを増やさずに自然な位置で改行されるようにしています。',
+    ],
+    repositoryUrl: 'https://github.com/Haruka-127/Haruka-127.github.io',
+  },
   {
     title: '文化祭用の注文システム',
     paragraphs: [
