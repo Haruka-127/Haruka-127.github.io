@@ -305,8 +305,10 @@ export const otherProjectsContent = [
   {
     title: 'プロフィールサイト',
     paragraphs: [
-      'プロフィール、興味分野、実績、開発しているプロジェクトを紹介するために、このWebサイトを制作しています。',
-      'Astro、TypeScript、Tailwind CSSを使用して静的サイトとして構築し、GitHub ActionsからGitHub Pagesへデプロイしています。日本語の文章にはBudouXを利用し、クライアント側のJavaScriptを増やさずに自然な位置で改行されるようにしています。',
+      'プロフィール、興味分野、実績、開発しているプロジェクトを紹介するWebサイトです。Homeでは活動の概要をまとめ、Projectsではプロジェクトの一覧から、それぞれの取り組みや使用技術を紹介する詳細ページへ進めます。',
+      'astro-navfolioテーマを使用し、落ち着いたグリーンの配色やレイアウトをプロフィールの内容に合わせて調整しています。PCとスマートフォンの両方で読みやすく、HomeとProjectsを行き来しやすい構成にしています。',
+      'Astro、TypeScript、Tailwind CSSで静的サイトとして構築し、GitHub ActionsからGitHub Pagesへデプロイしています。プロフィールやプロジェクトの情報は表示用のデータとして管理し、内容を更新しやすくしています。',
+      '日本語の文章にはBudouXを利用し、ビルド時に自然な改行位置を設定しています。ページの表示や移動にクライアント側のJavaScriptを必要とせず、キーボードでも操作できるようにしています。',
     ],
     repositoryUrl: 'https://github.com/Haruka-127/Haruka-127.github.io',
   },
