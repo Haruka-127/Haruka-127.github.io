@@ -1,0 +1,94 @@
+---
+import Icon from '../Icon.astro';
+import BudouxText from "../../../../components/BudouxText.astro";
+
+interface DoingItem {
+  text: string;
+  href?: string;
+  summary?: string;
+}
+
+const { items } = Astro.props as { items: DoingItem[] };
+
+---
+
+<article id="projects" class="glass-card doing-card">
+  <h2><Icon name="calendar" /> Projects</h2>
+  <ul>
+    {
+      items.map((item) => (
+        <li>
+          <div>{item.href ? <a href={item.href}><BudouxText text={item.text} /><span class="project-arrow" aria-hidden="true"> ↗</span></a> : <BudouxText text={item.text} />}{item.summary && <p class="project-summary"><BudouxText text={item.summary} /></p>}</div>
+        </li>
+      ))
+    }
+  </ul>
+  <a class="all-projects" href="/projects/">すべてのProjectsを見る <span aria-hidden="true">→</span></a>
+</article>
+
+<style>
+  .all-projects { margin-top: 16px; color: var(--paper-accent); font-size: .85rem; }
+  a { display: inline-block; padding-block: 6px; text-decoration: none; }
+  a:hover { color: var(--paper-accent); text-decoration: underline; text-underline-offset: 5px; }
+  .project-arrow { color: var(--paper-accent); }
+  .project-summary { margin: 4px 0 0; font-size: .82rem; line-height: 1.9; color: var(--paper-ink-soft); }
+
+  .doing-card {
+    padding: 24px 0 0;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .doing-card:hover {
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    color: var(--paper-ink);
+    font-size: 1.06rem;
+  }
+
+  h2 svg {
+    width: 21px;
+    height: 21px;
+    color: var(--paper-accent);
+  }
+
+  ul {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    padding: 14px 0 14px 18px;
+    border-top: 1px solid var(--paper-line);
+    color: var(--paper-ink);
+    font-size: 0.98rem;
+  }
+
+  li::before {
+    position: absolute;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--paper-accent);
+    content: '';
+  }
+
+</style>
