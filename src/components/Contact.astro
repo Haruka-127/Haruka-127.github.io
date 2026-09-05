@@ -1,6 +1,9 @@
 ---
-import SectionHeading from './SectionHeading.astro'; import Tag from './Tag.astro'; import { profile } from '../data/profile';
+import { profile } from '../data/profile';
+import Icon from '../theme/navfolio/components/Icon.astro';
+const icons: Record<string, string> = { X: 'x', GitHub: 'github', Email: 'mail' };
 ---
-<section id="contact" class="section-shell reveal">
-  <div class="contact-wrap"><SectionHeading eyebrow="05 / CONTACT" title="Contact" /><ul class="grid border-t border-slate-200 sm:grid-cols-3">{profile.links.map((link, index) => <li class="contact-link"><a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}><span class="font-mono text-[.6rem] text-slate-400">0{index + 1}</span><span class="text-sm text-slate-800">{link.label}</span>{link.note && <Tag text={link.note} tone="sample" />}</a></li>)}</ul></div>
+<section id="contact" class="connect-card">
+  <h2 class="card-heading">Contact</h2>
+  <ul class="contact-links">{profile.links.map(link => <li><a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}><Icon name={icons[link.label] ?? 'link'} /><span>{link.label}<small>{link.note}</small></span><span aria-hidden="true">↗</span></a></li>)}</ul>
 </section>

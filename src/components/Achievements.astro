@@ -1,17 +1,13 @@
 ---
-import SectionHeading from './SectionHeading.astro';
 import BudouxText from './BudouxText.astro';
+import Icon from '../theme/navfolio/components/Icon.astro';
 import { achievements } from '../data/interests';
 ---
-<section id="achievements" class="section-shell reveal">
-  <SectionHeading eyebrow="03 / ACHIEVEMENTS" title="Achievements" />
-  <ol class="border-t border-slate-200">
-    {achievements.map((achievement, index) => (
-      <li class="grid gap-4 border-b border-slate-200 py-7 sm:grid-cols-[2rem_1fr_auto] sm:items-baseline">
-        <span class="font-mono text-[.6rem] text-slate-400">0{index + 1}</span>
-        <div><p class="font-mono text-[.65rem] text-slate-500">{achievement.label}</p><h3 class="mt-2 text-xl font-medium text-black"><BudouxText text={achievement.title} /></h3></div>
-        <p class="text-sm text-slate-700"><BudouxText text={achievement.description} /></p>
-      </li>
-    ))}
-  </ol>
+<section id="achievements" class="achievements-card">
+  <h2 class="card-heading"><Icon name="star" /> Achievements</h2>
+  <ol>{achievements.map(achievement => <li>
+    <p class="eyebrow">{achievement.label}</p>
+    <h3><BudouxText text={achievement.title} /></h3>
+    <p class="achievement-status"><BudouxText text={achievement.description} /></p>
+  </li>)}</ol>
 </section>

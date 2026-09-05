@@ -2,10 +2,21 @@
 
 Harukaのプロフィール、興味分野、Achievements、Projects、連絡先を掲載するAstro製のプロフィールサイトです。
 
+## テーマ
+
+[astro-navfolio](https://github.com/dodolalorc/astro-navfolio)の実コードを取り込んで使用しています。公式`@navfolio/theme-default`の共通レイアウト・CSS・green-soft配色と、astro-navfolioのホーム画面コンポーネントを使用し、プロフィール向けに調整しています。
+
+ソースは[src/theme/navfolio/](src/theme/navfolio/)に配置しています。取得元コミット、変更点、更新手順、MITライセンスは[テーマのREADME](src/theme/navfolio/README.md)を参照してください。
+
+- [src/data/navigation.ts](src/data/navigation.ts): ナビゲーションとテーマへの表示データの受け渡し
+- [src/styles/global.css](src/styles/global.css): 日本語フォント、スマートフォン表示、プロフィール固有の調整
+- ブログ・検索・コメント機能は導入せず、Home・Projects一覧・4件の詳細ページを静的生成します。
+
 ## 使用技術
 
 - Astro / TypeScript（strictest）
 - Tailwind CSS（`@tailwindcss/vite`）
+- astro-navfolio / Maple Mono / Lucide icons
 - BudouX（日本語の自然な改行位置をビルド時に設定）
 - GitHub Actions / GitHub Pages
 - UIフレームワーク、データベース、CMS、サーバーサイド処理は不使用
@@ -37,7 +48,7 @@ npm run preview  # ビルド結果をローカルで確認
 
 - 表示名とサイトタイトル
 - HeroとAboutの文章
-- Heroのラベル
+- プロフィールのラベルと概要
 - X、GitHub、メールアドレス
 
 About内の改行には`\n`、段落間の空行には`\n\n`を使用します。

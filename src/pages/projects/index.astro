@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BudouxText from '../../components/BudouxText.astro';
+import Icon from '../../theme/navfolio/components/Icon.astro';
+import { projects } from '../../data/projects';
+import { projectsPage } from '../../data/navigation';
+import { profile } from '../../data/profile';
+---
+<Layout title={`${projectsPage.title} | ${profile.handle}`} description={projectsPage.description}>
+  <Header />
+  <main id="main-content" class="projects-page">
+    <header class="archive-header-shared page-header-spacing">
+      <div class="archive-header-main">
+        <p class="archive-kicker">{profile.handle} / Portfolio</p>
+        <h1 class="archive-title">{projectsPage.title}</h1>
+      </div>
+      <p class="archive-note"><BudouxText text={projectsPage.description} /></p>
+    </header>
+    <ul class="project-catalog">
+      {projects.map((project) => <li>
+        <a class="glass-card catalog-card" href={`/projects/${project.slug}/`}>
+          <div class="catalog-meta"><Icon name="folder" /></div>
+          <h2><BudouxText text={project.title} /></h2>
+          <p><BudouxText text={project.summary} /></p>
+          <span class="catalog-action">詳しく見る <span aria-hidden="true">→</span></span>
+        </a>
+      </li>)}
+    </ul>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .projects-page { min-height: calc(100vh - 100px); }
+  .archive-header-shared { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .archive-header-shared > .archive-note { max-width: none; justify-self: start; text-align: left; }
+  .project-catalog { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+  .catalog-card { display: flex; flex-direction: column; height: 100%; padding: 28px; text-decoration: none; }
+  .catalog-meta { display: flex; align-items: center; justify-content: flex-end; margin-bottom: 22px; color: var(--paper-accent); }
+  h2 { font-size: 1.25rem; line-height: 1.7; margin-bottom: 14px; }
+  .catalog-card p { color: var(--paper-ink-soft); font-size: .9rem; line-height: 1.9; margin: 0 0 24px; }
+  .catalog-action { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto; color: var(--paper-accent); font-size: .82rem; }
+  .catalog-card:hover h2 { color: var(--paper-accent); }
+  @media (max-width: 720px) {
+    .project-catalog { grid-template-columns: 1fr; gap: 16px; }
+    .catalog-card { padding: 22px; }
+  }
+</style>

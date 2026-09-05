@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ThemeBaseLayout from '../theme/navfolio/components/BaseLayout.astro';
 import { profile } from '../data/profile';
 interface Props { title?: string; description?: string }
 const { title = profile.title, description = profile.description } = Astro.props;
@@ -10,14 +11,13 @@ const jsonLd = {
   mainEntity: { '@type': 'Person', name: profile.handle, url: canonical.toString(), sameAs: [profile.xUrl, profile.githubUrl], description },
 };
 ---
-<!doctype html>
-<html lang="ja" class="scroll-smooth">
-  <head>
+<ThemeBaseLayout htmlLang="ja" palette="green-soft">
+  <Fragment slot="head">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#fdfdf9" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
     <meta property="og:type" content="profile" />
@@ -33,9 +33,7 @@ const jsonLd = {
     <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  </head>
-  <body>
+  </Fragment>
     <a class="skip-link" href="#main-content">本文へスキップ</a>
     <slot />
-  </body>
-</html>
+</ThemeBaseLayout>
