@@ -20,6 +20,11 @@ export const achievements: readonly Achievement[] = [
   {
     label: "SECCAMP '26",
     title: 'セキュリティ・キャンプ 2026 Z1ゼミ',
-    description: '参加済み',
+    description: '修了',
+  },
+  {
+    label: "CODE BLUE '26",
+    title: 'CODE BLUE 2026 学生スタッフ',
+    description: '参加予定',
   },
 ];

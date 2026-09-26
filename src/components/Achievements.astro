@@ -4,7 +4,7 @@ import Icon from '../theme/navfolio/components/Icon.astro';
 import { achievements } from '../data/interests';
 ---
 <section id="achievements" class="achievements-card">
-  <h2 class="card-heading"><Icon name="star" /> Achievements</h2>
+  <h2 class="card-heading"><Icon name="star" /> Activities</h2>
   <ol>{achievements.map(achievement => <li>
     <p class="eyebrow">{achievement.label}</p>
     <h3><BudouxText text={achievement.title} /></h3>
