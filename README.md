@@ -10,7 +10,7 @@ Harukaのプロフィール、興味分野、Achievements、Projects、連絡先
 
 - [src/data/navigation.ts](src/data/navigation.ts): ナビゲーションとテーマへの表示データの受け渡し
 - [src/styles/global.css](src/styles/global.css): 日本語フォント、スマートフォン表示、プロフィール固有の調整
-- ブログ・検索・コメント機能は導入せず、Home・Projects一覧・4件の詳細ページを静的生成します。
+- ブログ・検索・コメント機能は導入せず、Home・Projects一覧・5件の詳細ページを静的生成します。
 
 ## 使用技術
 

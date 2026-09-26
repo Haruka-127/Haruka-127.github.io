@@ -301,6 +301,22 @@ export const studentHealthSupportContent = [
   },
 ] satisfies readonly ProjectSection[];
 
+export const festivalOrderSystemContent = [
+  {
+    title: '概要',
+    paragraphs: [
+      '文化祭で飲食ブースの注文を効率化するためのシステムを開発しています。呼び出し画面は、飲食店の注文番号表示を参考にしました。',
+      '注文を行うブースで入力した内容が商品提供ブースへ通知され、商品が提供可能になると、モニターページに注文番号が表示されるようになっています。',
+    ],
+  },
+  {
+    title: '利用実績',
+    paragraphs: [
+      '実際に高校の文化祭で利用し、209件の注文、339件の商品を処理しました。',
+    ],
+  },
+] satisfies readonly ProjectSection[];
+
 export const otherProjectsContent = [
   {
     title: 'プロフィールサイト',
@@ -311,14 +327,6 @@ export const otherProjectsContent = [
       '日本語の文章にはBudouXを利用し、ビルド時に自然な改行位置を設定しています。ページの表示や移動にクライアント側のJavaScriptを必要とせず、キーボードでも操作できるようにしています。',
     ],
     repositoryUrl: 'https://github.com/Haruka-127/Haruka-127.github.io',
-  },
-  {
-    title: '文化祭用の注文システム',
-    paragraphs: [
-      '文化祭で飲食ブースの注文を効率化するためのシステムを開発しています。呼び出し画面は、飲食店の注文番号表示を参考にしました。',
-      '注文を行うブースで入力した内容が商品提供ブースへ通知され、商品が提供可能になると、モニターページに注文番号が表示されるようになっています。',
-    ],
-    repositoryUrl: 'https://github.com/Haruka-127/festival-order-system',
   },
   {
     title: 'FAX文書を扱う業務効率化システム',

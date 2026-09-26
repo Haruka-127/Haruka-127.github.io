@@ -1,4 +1,4 @@
-import { aiAgentRuntimeContent, homeServerContent, otherProjectsContent, studentHealthSupportContent, type ProjectSection } from './projectDetails';
+import { aiAgentRuntimeContent, festivalOrderSystemContent, homeServerContent, otherProjectsContent, studentHealthSupportContent, type ProjectSection } from './projectDetails';
 
 interface ProjectBase {
   slug: string;
@@ -37,6 +37,15 @@ export const projects: readonly Project[] = [
     content: aiAgentRuntimeContent,
     status: '開発中',
     repositoryUrl: 'https://github.com/Haruka-127/sunaba',
+  },
+  {
+    slug: 'festival-order-system',
+    title: '文化祭用の注文システム',
+    titleParts: ['文化祭用の', '注文システム'],
+    summary: '文化祭の飲食ブースで、注文の受付から商品提供の呼び出しまでを支援するシステムを開発しています',
+    content: festivalOrderSystemContent,
+    status: '開発中',
+    repositoryUrl: 'https://github.com/Haruka-127/festival-order-system',
   },
   {
     slug: 'student-health-support',
