@@ -332,7 +332,6 @@ export const otherProjectsContent = [
     title: 'FAX文書を扱う業務効率化システム',
     paragraphs: [
       'FAXで送られてくる文書をLLMで読み取り、文書種別を判定し\n受注書の場合は過去の注文履歴と照合して内容が適切か判断し\n受注システムへ登録するシステムを開発しています。',
-      '現在も継続的に開発を進めています。',
     ],
   },
 ] satisfies readonly ProjectSection[];
