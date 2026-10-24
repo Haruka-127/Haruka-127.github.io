@@ -15,7 +15,7 @@
   "dependencies": {
     "@fontsource/maple-mono": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.1.1",
+    "astro": "^7.4.2",
     "budoux": "^0.8.4",
     "lucide-astro": "^0.556.0",
     "tailwindcss": "^4.3.3"
