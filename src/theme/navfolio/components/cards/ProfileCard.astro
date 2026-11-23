@@ -3,7 +3,6 @@ import Icon from '../Icon.astro';
 
 interface Profile {
   name: string;
-  handle: string;
   role: string;
   email: string;
   website: string;
@@ -26,7 +25,6 @@ const { profile } = Astro.props as { profile: Profile };
 
   <div class="profile-heading">
     <h1>{profile.name}</h1>
-    <p>{profile.handle}</p>
     <span><Icon name="sparkle" /> {profile.role}</span>
   </div>
 </article>
@@ -67,17 +65,12 @@ const { profile } = Astro.props as { profile: Profile };
     letter-spacing: 0;
   }
 
-  .profile-heading p {
-    margin: 4px 0 14px;
-    color: var(--paper-ink-soft);
-    font-size: 0.94rem;
-  }
-
   .profile-heading span {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     justify-content: flex-end;
+    margin-top: 12px;
     padding: 0;
     border: 0;
     border-radius: 0;
