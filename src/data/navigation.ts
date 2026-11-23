@@ -16,7 +16,7 @@ export const home = {
   profile: {
     name: profile.handle,
     handle: '@Haruka-127',
-    role: 'High School Student',
+    role: 'High School Student / Security Engineer',
     email: 'haruka127h@gmail.com',
     website: 'https://haruka-127.github.io/',
     avatar: '/favicon.png',

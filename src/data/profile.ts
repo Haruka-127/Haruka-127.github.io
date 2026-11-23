@@ -24,8 +24,8 @@ export const profile: Profile = {
   brand: 'Haruka',
   title: 'Haruka | Profile',
   description: "I'm Haruka, a high school student focused on infrastructure, security, and development.",
-  heroDescription: 'インフラとセキュリティに関心を持つ、日本の高校生です',
-  about: '私は高校生で、自宅サーバーの運用や開発を通して、インフラ・セキュリティを中心に学んでいます。\n\n自宅サーバーは、Proxmoxを用いて構築されており、さまざまなサービスが展開・運用されています。\n\nAIエージェントをセキュアに動かすための実行基盤の開発を通してセキュリティについて学んでいます。',
+  heroDescription: 'セキュリティとインフラに取り組む、日本の高校生です',
+  about: '高校生のセキュリティエンジニアです。セキュリティとインフラについて学びながら、セキュリティエンジニアとして働いています。\n\nAIエージェントのセキュリティについて関心があり、安全にAIエージェントを実行する手法について研究しています。\n\nインフラにも関心がありProxmoxを基盤にした自宅サーバーを構築・運用しています。',
   labels: ['High School Student', 'Infrastructure', 'Security', 'Development'],
   keywords: ['Infrastructure', 'Security', 'Networking','Linux', 'Web', 'Development'],
   status: [
