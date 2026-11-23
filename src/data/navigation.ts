@@ -26,7 +26,6 @@ export const home = {
     name: profile.handle,
     body: profile.about.split('\n\n'),
   },
-  quote: { text: [profile.heroDescription] },
   doing: projects.map(project => ({
     text: project.title,
     summary: project.summary,
