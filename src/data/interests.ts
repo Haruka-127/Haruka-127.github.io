@@ -19,12 +19,12 @@ export interface Achievement {
 export const achievements: readonly Achievement[] = [
   {
     label: "SECCAMP '26",
-    title: 'セキュリティ・キャンプ 2026 Z1ゼミ',
+    title: 'セキュリティ・キャンプ 2026 全国大会 Z1ゼミ',
     description: '修了',
   },
   {
     label: "CODE BLUE '26",
     title: 'CODE BLUE 2026 学生スタッフ',
-    description: '参加予定',
+    description: '参加',
   },
 ];
